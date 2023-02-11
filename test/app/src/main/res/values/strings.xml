@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CSI5175A1</string>
+    <string name="welcome_msg">Welcome to Zihan &amp; Shiego\'s game</string>
+    <string name="ok_button">OK</string>
+    <string name="start_button">Start</string>
+    <string name="score_button">Scores</string>
+    <string name="back_button">Back</string>
+</resources>
