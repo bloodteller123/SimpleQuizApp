@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/start_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="192dp"
         android:text="@string/start_button"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/score_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/score_button"
@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/back_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,5 +38,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/score_btn"
+        app:layout_constraintVertical_bias="0.058" />
+
+    <Button
+        android:id="@+id/addQuestion_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_btn"
         app:layout_constraintVertical_bias="0.058" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Test"
         tools:targetApi="31">
         <activity
+            android:name=".QuestionActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".GameActivity"
             android:exported="false">
             <meta-data
@@ -39,7 +46,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <service android:name=".MusicService" android:enabled="true"></service>
+
+        <service
+            android:name=".MusicService"
+            android:enabled="true" />
     </application>
 
 </manifest>

@@ -34,6 +34,12 @@ class MenuActivity : AppCompatActivity() {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        var addBtn: Button = findViewById(R.id.addQuestion_btn)
+        addBtn.setOnClickListener {
+            var intent = Intent(this, QuestionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun buildDialog(str: String){

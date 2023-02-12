@@ -48,10 +48,14 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        val mq: MockQuestions =  MockQuestions()
-        qs = mq.getQuestions()
-        cs = mq.getChoices()
-        ans = mq.getAnswers()
+//        val mq: MockQuestions =  MockQuestions()
+//        qs = mq.getQuestions()
+//        cs = mq.getChoices()
+//        ans = mq.getAnswers()
+
+        qs = MockQuestions.questions
+        cs = MockQuestions.choices
+        ans = MockQuestions.answers
 
         c1 = findViewById(R.id.choice_a)
         c2 = findViewById(R.id.choice_b)
