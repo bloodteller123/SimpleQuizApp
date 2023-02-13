@@ -145,8 +145,8 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 Log.d("Answer", ans[ind].toString())
                 // get the selected button
                 var sBtn: Button = ll.getChildAt(sc) as Button
-                // get the answer button +2 because the first two widgets are text views
-                var ansBtn: Button = ll.getChildAt(ans[ind]+2) as Button
+                // get the answer button
+                var ansBtn: Button = ll.getChildAt(ans[ind]) as Button
                 if(ans[ind] != sc){
                     sBtn.setBackgroundColor(Color.RED)
                 }
