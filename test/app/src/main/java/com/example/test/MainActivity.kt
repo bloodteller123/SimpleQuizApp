@@ -11,10 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var okButton: Button = findViewById(R.id.ok_button)
+        // start background music
         val svc = Intent(this, MusicService::class.java)
         startService(svc)
 
+        var okButton: Button = findViewById(R.id.ok_button)
         okButton.setOnClickListener{
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)

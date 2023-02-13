@@ -1,5 +1,6 @@
 package com.example.test
 
+// 20 questions
 class MockQuestions {
     companion object {
         var questions = arrayListOf(
@@ -36,7 +37,7 @@ class MockQuestions {
             arrayListOf("Joe Biden", "Dick Cheney", "Kamala Harris"),
             arrayListOf("Africa", "America", "Asia"),
             arrayListOf("7,525 miles", "6,525 miles", "5,525 miles"),
-            arrayListOf("1997", "2002", "2012e"),
+            arrayListOf("1997", "2002", "2012"),
             arrayListOf("Timon", "Scar", "James"),
             arrayListOf("Starbucks", "IBM", "Google"),
             arrayListOf("Tokyo", "Wellington", "Ottawa"),

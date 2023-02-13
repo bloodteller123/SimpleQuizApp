@@ -18,12 +18,14 @@ class QuestionActivity : AppCompatActivity() {
         var editFieldAns: EditText = findViewById(R.id.editText5)
 
         val addBtn: Button = findViewById(R.id.add_btn)
+
+        // simply add new question to the collection of questions via  static function addQuestion from MockQuestions
         addBtn.setOnClickListener {
             MockQuestions.addQuestion(editFieldQuestion.text.toString(),
                 arrayListOf(choicea.text.toString(), choiceb.text.toString(), choicec.text.toString()),
                 editFieldAns.text.toString().toInt()
             )
-            Toast.makeText(this, "New question added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "New question added", Toast.LENGTH_LONG).show();
             finish()
         }
     }

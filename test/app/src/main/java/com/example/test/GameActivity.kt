@@ -1,5 +1,6 @@
 package com.example.test
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -21,6 +22,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     private var setInd: Int = 0;
 
     private lateinit var question: TextView
+    private lateinit var questionNum: TextView
 
     private lateinit var c1: Button
     private lateinit var c2: Button
@@ -48,11 +50,8 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-//        val mq: MockQuestions =  MockQuestions()
-//        qs = mq.getQuestions()
-//        cs = mq.getChoices()
-//        ans = mq.getAnswers()
 
+    // init necessary components
         qs = MockQuestions.questions
         cs = MockQuestions.choices
         ans = MockQuestions.answers
@@ -61,10 +60,12 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         c2 = findViewById(R.id.choice_b)
         c3 = findViewById(R.id.choice_c)
         submitBtn = findViewById(R.id.submit_btn)
+        submitBtn.width = c1.width
         ll = findViewById(R.id.choices)
         rl = findViewById(R.id.layout)
 
         question = findViewById(R.id.question)
+        questionNum = findViewById(R.id.question_number)
         selections = arrayListOf()
 
         c1.setOnClickListener(this)
@@ -75,6 +76,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         screenColor = mutableListOf(Color.YELLOW, Color.GRAY, Color.MAGENTA, Color.WHITE)
 
         val nums:Int = qs.size-1
+        // generate four random distinct indices
         while(index.size<4){
             val rnds = (0..nums).random()
             index.add(rnds)
@@ -87,16 +89,19 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-
+        // reset button color
         c1.setBackgroundColor(Color.WHITE)
         c2.setBackgroundColor(Color.WHITE)
         c3.setBackgroundColor(Color.WHITE)
+
         if(!isViewed) {
+            // simple siwtch to check if it's submit or regualr button
             when (view?.id) {
                 R.id.submit_btn -> {
                     if (selectedChoice != -1) {
                         selections.add(selectedChoice)
                         val ind: Int = index.elementAt(setInd)
+                        // validate correctness
                         if (cs[ind][ans[ind]] == (ll.getChildAt(selectedChoice) as Button).text) {
                             score++
                         }
@@ -111,7 +116,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                     view?.setBackgroundColor(Color.CYAN)
                 }
             }
-        }
+        } // if we are at view only mode
         else if(view?.id == R.id.submit_btn){
             loadNextQuestion()
         }
@@ -119,10 +124,15 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun loadNextQuestion() {
 
+        // still has questions left to be answered/viewed
         if(setInd != index.size) {
             val ind: Int = index.elementAt(setInd)
             rl.setBackgroundColor(screenColor[setInd])
-            question.text = qs[ind]
+
+            var t = "Question "+(setInd+1).toString() +". "+qs[ind]
+            question.text = t
+            t = (setInd+1).toString()+ "/"+index.size.toString()
+            questionNum.text = t
             c1.text = cs[ind][0]
             c2.text = cs[ind][1]
             c3.text = cs[ind][2]
@@ -133,8 +143,10 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 val sc: Int = selections[setInd]
                 Log.d("Selection", sc.toString())
                 Log.d("Answer", ans[ind].toString())
+                // get the selected button
                 var sBtn: Button = ll.getChildAt(sc) as Button
-                var ansBtn: Button = ll.getChildAt(ans[ind]) as Button
+                // get the answer button +2 because the first two widgets are text views
+                var ansBtn: Button = ll.getChildAt(ans[ind]+2) as Button
                 if(ans[ind] != sc){
                     sBtn.setBackgroundColor(Color.RED)
                 }
@@ -146,6 +158,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     private fun end(){
+        // save current score in sharedpreferences
         val editor: SharedPreferences.Editor =  sharedPrefs.edit()
         editor.putInt("score",score)
         editor.apply()
@@ -158,12 +171,13 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         builder?.setMessage("You score $str in this round")
             ?.setCancelable(false)
             ?.setNeutralButton("Back") { _, _ ->
-                //do things
+                // going back to menu
                 var intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)
                 finish()
             }
             ?.setPositiveButton("View answers") { _, _ ->
+                // enter view question mode
                 setInd = 0
                 isViewed = true
                 loadNextQuestion()
@@ -172,5 +186,4 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         val alert: AlertDialog = builder.create()
         alert.show()
     }
-
 }

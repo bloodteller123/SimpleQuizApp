@@ -6,13 +6,13 @@ import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 
-
+// handle background music
 class MusicService : Service(){
     lateinit var player: MediaPlayer
+
     override fun onBind(p0: Intent?): IBinder? {
         return null;
     }
-
     override fun onCreate() {
         super.onCreate()
         player = MediaPlayer.create(this, R.raw.bg)
