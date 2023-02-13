@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CSI5175A1</string>
+    <string name="welcome_msg">Welcome to Zihan\'s game</string>
+    <string name="ok_button">OK</string>
+    <string name="start_button">Start</string>
+    <string name="score_button">Scores</string>
+    <string name="back_button">Back</string>
+    <string name="add_button">Add</string>
+    <string name="title">Add your question here</string>
+    <string name="q_description">Enter question here</string>
+    <string name="q_choices">Enter choices here</string>
+    <string name="q_answer">Enter the answer here (0,1,2)</string>
+    <string name="add_question">Add Question</string>
+    <string name="ok">Ok</string>
+</resources>
