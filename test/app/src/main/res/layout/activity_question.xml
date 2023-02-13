@@ -47,7 +47,9 @@
             android:layout_marginBottom="20dp"
             android:background="#CCCCCC"
             android:ems="10"
-            android:inputType="textPersonName">
+            android:hint="@string/enter_question"
+            android:inputType="textPersonName"
+            android:textColorHint="#455A64">
 
             <requestFocus />
         </EditText>
@@ -75,7 +77,10 @@
                 android:layout_margin="3dp"
                 android:background="#CCCCCC"
                 android:ems="5"
-                android:inputType="textPersonName" />
+                android:hint="@string/choice_a"
+                android:inputType="textPersonName"
+                android:textColorHint="#455A64"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/editText3"
@@ -84,7 +89,9 @@
                 android:layout_margin="3dp"
                 android:background="#CCCCCC"
                 android:ems="5"
-                android:inputType="textPersonName" />
+                android:hint="@string/choice_b"
+                android:inputType="textPersonName"
+                android:textColorHint="#455A64" />
 
             <EditText
                 android:id="@+id/editText4"
@@ -93,7 +100,9 @@
                 android:layout_margin="3dp"
                 android:background="#CCCCCC"
                 android:ems="5"
-                android:inputType="textPersonName" />
+                android:hint="@string/choice_c"
+                android:inputType="textPersonName"
+                android:textColorHint="#455A64" />
         </LinearLayout>
 
         <TextView
@@ -112,8 +121,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:background="#CCCCCC"
+            android:hint="@string/choice_ans"
             android:ems="10"
-            android:inputType="textPersonName">
+            android:inputType="textPersonName"
+            android:textColorHint="#455A64">
 
             <requestFocus />
         </EditText>
@@ -123,11 +134,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/add_btn"
             android:text="@string/add_button"
-            android:layout_below="@id/question_panel"
             android:textSize="20sp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="80dp" />
     </LinearLayout>
-
-
 
 </RelativeLayout>

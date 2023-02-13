@@ -12,4 +12,9 @@
     <string name="q_answer">Enter the answer here (0,1,2)</string>
     <string name="add_question">Add Question</string>
     <string name="ok">Ok</string>
+    <string name="enter_question">Enter question</string>
+    <string name="choice_a">Choice A</string>
+    <string name="choice_b">Choice B</string>
+    <string name="choice_c">Choice C</string>
+    <string name="choice_ans">0/1/2</string>
 </resources>
