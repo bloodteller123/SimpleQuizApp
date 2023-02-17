@@ -9,7 +9,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog.Builder
 
-
+/**
+ * This class takes care of the menu interface
+ * */
 class MenuActivity : AppCompatActivity() {
     private val sharedPrefs by lazy{ getSharedPreferences("preferences", Context.MODE_PRIVATE)}
     override fun onCreate(savedInstanceState: Bundle?) {

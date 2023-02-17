@@ -6,7 +6,9 @@ import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 
-// handle background music
+/**
+ * This class takes care of the background music
+ * */
 class MusicService : Service(){
     lateinit var player: MediaPlayer
 
@@ -15,12 +17,15 @@ class MusicService : Service(){
     }
     override fun onCreate() {
         super.onCreate()
-        player = MediaPlayer.create(this, R.raw.bg)
-        player.isLooping = true
-        player.setVolume(1F, 1F)
+//        player = MediaPlayer.create(this, R.raw.bg)
+//        player.isLooping = true
+//        player.setVolume(1F, 1F)
     }
 //Called by the system every time a client explicitly starts the service by calling Context.startService(Intent),
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        player = MediaPlayer.create(this, R.raw.bg)
+        player.isLooping = true
+        player.setVolume(1F, 1F)
         Log.d("Music", "Music")
         player.start()
         return START_STICKY

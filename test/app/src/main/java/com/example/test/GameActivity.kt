@@ -16,6 +16,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 
+
+/**
+ * This classs take care of the game interface
+ * */
 class GameActivity : AppCompatActivity(), View.OnClickListener {
     private var score: Int = 0
     private lateinit var index: MutableSet<Int>
@@ -76,7 +80,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         screenColor = mutableListOf(Color.YELLOW, Color.GRAY, Color.MAGENTA, Color.WHITE)
 
         val nums:Int = qs.size-1
-        // generate four random distinct indices
+        // generate four random distinct indices which represent 4 different questions
         while(index.size<4){
             val rnds = (0..nums).random()
             index.add(rnds)
@@ -98,6 +102,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             // simple siwtch to check if it's submit or regualr button
             when (view?.id) {
                 R.id.submit_btn -> {
+                    // make sure one choice is selected
                     if (selectedChoice != -1) {
                         selections.add(selectedChoice)
                         val ind: Int = index.elementAt(setInd)
@@ -129,10 +134,12 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             val ind: Int = index.elementAt(setInd)
             rl.setBackgroundColor(screenColor[setInd])
 
+            // update question, button texts
             var t = "Question "+(setInd+1).toString() +". "+qs[ind]
             question.text = t
             t = (setInd+1).toString()+ "/"+index.size.toString()
             questionNum.text = t
+
             c1.text = cs[ind][0]
             c2.text = cs[ind][1]
             c3.text = cs[ind][2]
